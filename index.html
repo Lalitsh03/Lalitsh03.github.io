@@ -157,13 +157,30 @@
       align-items: center;
       overflow: hidden;
       padding-top: 64px;
+      background: #08000f;
     }
-    #heroCanvas {
-      position: absolute;
-      inset: 0;
+    .hero-bloom-purple {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 65% 70% at 85% 40%, rgba(139,92,246,0.22) 0%, transparent 70%);
       pointer-events: none;
-      opacity: 0.5;
     }
+    .hero-bloom-cyan {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 55% at 10% 65%, rgba(56,189,248,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-scanlines {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(139,92,246,0.018) 3px, rgba(139,92,246,0.018) 4px);
+      pointer-events: none;
+    }
+    .hero-glow-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #8b5cf6 30%, #38bdf8 70%, transparent 100%);
+      box-shadow: 0 0 20px rgba(139,92,246,0.5), 0 0 50px rgba(56,189,248,0.2);
+      pointer-events: none;
+    }
+    #heroCanvas { display: none; }
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -176,7 +193,7 @@
     .hero-greeting {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.9rem;
-      color: var(--accent2);
+      color: #a78bfa;
       margin-bottom: var(--space-sm);
       letter-spacing: 0.08em;
     }
@@ -186,7 +203,7 @@
       font-weight: 700;
       line-height: 1.1;
       margin-bottom: var(--space-md);
-      background: linear-gradient(135deg, #e6edf3 30%, #38bdf8 100%);
+      background: linear-gradient(135deg, #e6edf3 20%, #a78bfa 55%, #38bdf8 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -884,7 +901,10 @@
 
   <!-- ══ HERO ══ -->
   <section id="hero">
-    <canvas id="heroCanvas"></canvas>
+    <div class="hero-bloom-purple"></div>
+    <div class="hero-bloom-cyan"></div>
+    <div class="hero-scanlines"></div>
+    <div class="hero-glow-bar"></div>
     <div class="container hero-grid">
       <div class="hero-text">
         <p class="hero-greeting">Hi, I'm</p>
@@ -932,7 +952,7 @@
         <div class="about-bio reveal">
           <p>I'm a <strong>Data Analyst</strong> based in San Diego, CA, with an M.S. in Management Information Systems from Cal State Fullerton. I build things with data — turning raw numbers into stories that drive decisions.</p>
           <p>My work spans <strong>real estate pricing models</strong>, crime-property tax analysis, GPU benchmark analysis, and healthcare ML systems. I'm fluent in Python, SQL, and Power BI, and I care about clean analysis as much as clean code.</p>
-          <p>When I'm not deep in a dataset, you'll find me playing volleyball, tracking the latest CPU and GPU launches, or grinding ranked in CS2.</p>
+          <p>Outside of data, I'm an avid <strong>volleyball player</strong> — I love both the competitive side and the team energy. You'll also find me tracking the latest CPU and GPU launches or grinding ranked in <strong>CS2</strong>.</p>
         </div>
         <div class="about-stats reveal">
           <div class="stat-card">
@@ -1017,7 +1037,7 @@
               <h3>Data Analyst</h3>
               <span class="divider-dot">●</span>
               <span class="company-name">Broswave Technologies</span>
-              <span class="date-badge">Jan 2026 – Present</span>
+              <span class="date-badge">Jan 2026 – Apr 2026</span>
               <span class="location-tag">📍 San Diego, CA</span>
             </div>
             <ul class="timeline-bullets">
@@ -1074,6 +1094,29 @@
       <h2 class="section-title reveal">Projects</h2>
       <div class="projects-grid">
 
+        <!-- GPU Upscaling — FEATURED FIRST -->
+        <div class="project-card reveal">
+          <h3 class="project-title">The Upscaling Illusion</h3>
+          <span class="project-highlight">3 Vendors · RTX 2000→5000 · AMD RX 5000→9000 · Intel Arc</span>
+          <p class="project-desc">Did DLSS, FSR, and XeSS genuinely improve GPU value per dollar — or did manufacturers use AI upscaling as cover to slow raw hardware progress while raising prices? Raw rasterization PPD roughly doubled over 7 years, but Nvidia's flagship price rose 42% in inflation-adjusted dollars. Strip out frame generation and the headline numbers tell a very different story.</p>
+          <div class="project-tools">
+            <span class="badge badge-blue tool-badge">Python</span>
+            <span class="badge badge-blue tool-badge">Pandas</span>
+            <span class="badge badge-blue tool-badge">NumPy</span>
+            <span class="badge badge-teal tool-badge">Matplotlib</span>
+            <span class="badge badge-teal tool-badge">Seaborn</span>
+            <span class="badge badge-teal tool-badge">Power BI</span>
+            <span class="badge badge-grey tool-badge">SQLite</span>
+            <span class="badge badge-grey tool-badge">Web Scraping</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Lalitsh03/upscaling-illusion" class="btn-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+
         <!-- Orange County Real Estate -->
         <div class="project-card reveal">
           <h3 class="project-title">Orange County Real Estate Analysis</h3>
@@ -1111,29 +1154,6 @@
           </div>
           <div class="project-links">
             <a href="https://github.com/Lalitsh03/Boston_Crime_with_Property_Analysis" class="btn-link" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-              View on GitHub
-            </a>
-          </div>
-        </div>
-
-        <!-- GPU Upscaling -->
-        <div class="project-card reveal">
-          <h3 class="project-title">The Upscaling Illusion</h3>
-          <span class="project-highlight">3 Vendors · RTX 2000→5000 · AMD RX 5000→9000 · Intel Arc</span>
-          <p class="project-desc">Did DLSS, FSR, and XeSS genuinely improve GPU value per dollar — or did manufacturers use AI upscaling as cover to slow raw hardware progress while raising prices? Raw rasterization PPD roughly doubled over 7 years, but Nvidia's flagship price rose 42% in inflation-adjusted dollars. Strip out frame generation and the headline numbers tell a very different story.</p>
-          <div class="project-tools">
-            <span class="badge badge-blue tool-badge">Python</span>
-            <span class="badge badge-blue tool-badge">Pandas</span>
-            <span class="badge badge-blue tool-badge">NumPy</span>
-            <span class="badge badge-teal tool-badge">Matplotlib</span>
-            <span class="badge badge-teal tool-badge">Seaborn</span>
-            <span class="badge badge-teal tool-badge">Power BI</span>
-            <span class="badge badge-grey tool-badge">SQLite</span>
-            <span class="badge badge-grey tool-badge">Web Scraping</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Lalitsh03/upscaling-illusion" class="btn-link" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
               View on GitHub
             </a>
@@ -1252,57 +1272,6 @@
     }
     typeLoop();
 
-    // ── 2. Particle Canvas ──
-    (function() {
-      if (window.matchMedia('(max-width: 768px)').matches) return;
-      const canvas = document.getElementById('heroCanvas');
-      const ctx = canvas.getContext('2d');
-      let W, H, particles = [];
-      function resize() {
-        W = canvas.width = canvas.offsetWidth;
-        H = canvas.height = canvas.offsetHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-      for (let i = 0; i < 60; i++) {
-        particles.push({
-          x: Math.random() * (W || 1200),
-          y: Math.random() * (H || 800),
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          r: Math.random() * 2 + 1
-        });
-      }
-      function draw() {
-        ctx.clearRect(0, 0, W, H);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < 0 || p.x > W) p.vx *= -1;
-          if (p.y < 0 || p.y > H) p.vy *= -1;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(56,189,248,0.35)';
-          ctx.fill();
-        });
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 130) {
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(56,189,248,${0.12 * (1 - dist / 130)})`;
-              ctx.lineWidth = 1;
-              ctx.stroke();
-            }
-          }
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
 
     // ── 3. Nav scroll state + progress bar ──
     const navbar = document.getElementById('navbar');
