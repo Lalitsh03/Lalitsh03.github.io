@@ -1251,7 +1251,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
               sh.lalit007@gmail.com
             </a>
-            <button class="copy-btn" id="copyEmailBtn" title="Copy email address" onclick="(function(btn){navigator.clipboard.writeText('sh.lalit007@gmail.com').then(function(){var orig=btn.innerHTML;btn.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><polyline points=\'20 6 9 17 4 12\'></polyline></svg>';btn.style.color=\'#4ade80\';btn.style.borderColor=\'#4ade80\';setTimeout(function(){btn.innerHTML=orig;btn.style.color=\'\';btn.style.borderColor=\'\';},2000);})})(this)">
+            <button class="copy-btn" id="copyEmailBtn" title="Copy email address">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
             </button>
           </div>
@@ -1362,6 +1362,25 @@
         hamburger.textContent = '☰';
       });
     });
+
+    // ── 7. Copy email button ──
+    const copyBtn = document.getElementById('copyEmailBtn');
+    const checkSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+    const copySVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText('sh.lalit007@gmail.com').then(function() {
+          copyBtn.innerHTML = checkSVG;
+          copyBtn.style.color = '#4ade80';
+          copyBtn.style.borderColor = '#4ade80';
+          setTimeout(function() {
+            copyBtn.innerHTML = copySVG;
+            copyBtn.style.color = '';
+            copyBtn.style.borderColor = '';
+          }, 2000);
+        });
+      });
+    }
   </script>
 </body>
 </html>
