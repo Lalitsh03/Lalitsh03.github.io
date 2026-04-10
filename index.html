@@ -252,6 +252,16 @@
       background: rgba(56,189,248,0.08);
       transform: translateY(-2px);
     }
+    .btn-resume {
+      background: transparent;
+      color: #fdba74;
+      border: 1.5px solid #fb923c;
+    }
+    .btn-resume:hover {
+      background: rgba(251,146,60,0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(251,146,60,0.2);
+    }
     .hero-socials {
       display: flex;
       gap: var(--space-md);
@@ -431,22 +441,22 @@
       background: rgba(56,189,248,0.15);
     }
     .badge-teal {
-      background: rgba(45,212,191,0.1);
-      color: #5eead4;
-      border-color: rgba(45,212,191,0.2);
+      background: rgba(192,132,252,0.1);
+      color: #d8b4fe;
+      border-color: rgba(192,132,252,0.25);
     }
     .badge-teal:hover {
-      box-shadow: 0 0 0 1px var(--accent2);
-      background: rgba(45,212,191,0.15);
+      box-shadow: 0 0 0 1px #c084fc;
+      background: rgba(192,132,252,0.15);
     }
     .badge-grey {
-      background: rgba(139,148,158,0.12);
-      color: var(--muted);
-      border-color: rgba(139,148,158,0.2);
+      background: rgba(251,146,60,0.1);
+      color: #fdba74;
+      border-color: rgba(251,146,60,0.25);
     }
     .badge-grey:hover {
-      box-shadow: 0 0 0 1px var(--muted);
-      background: rgba(139,148,158,0.18);
+      box-shadow: 0 0 0 1px #fb923c;
+      background: rgba(251,146,60,0.15);
     }
 
     /* ══════════════════════════════════
@@ -859,7 +869,7 @@
   <nav id="navbar">
     <div class="nav-progress" id="navProgress"></div>
     <div class="container nav-inner">
-      <a class="nav-logo" href="#hero">lalit<span>.dev</span></a>
+      <a class="nav-logo" href="#hero">Lalit <span>Sharma</span></a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
@@ -877,7 +887,7 @@
     <canvas id="heroCanvas"></canvas>
     <div class="container hero-grid">
       <div class="hero-text">
-        <p class="hero-greeting">// hello world</p>
+        <p class="hero-greeting">Hi, I'm</p>
         <h1 class="hero-name">Lalit Sharma</h1>
         <h2 class="hero-role">
           <span id="typewriter"></span><span class="cursor">|</span>
@@ -886,6 +896,10 @@
         <div class="hero-btns">
           <a href="#projects" class="btn btn-primary">View My Work</a>
           <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          <a href="./Lalit_Sharma_Data_Business_Analyst.pdf" class="btn btn-resume" download target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Resume
+          </a>
         </div>
         <div class="hero-socials">
           <!-- GitHub -->
@@ -1028,6 +1042,24 @@
               <li>Connected NGO datasets via REST APIs and Python pipelines, reducing manual reporting effort by 25%</li>
               <li>Designed BPMN diagrams, use cases, and workflow documentation for operational processes</li>
               <li>Built Power BI dashboards tracking donation flows and operational costs across programs</li>
+              <li>Collaborated with product and engineering teams to ensure accurate data capture and reporting functionality</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>Data Science Intern</h3>
+              <span class="divider-dot">●</span>
+              <span class="company-name">Thinknext Technologies</span>
+              <span class="date-badge">Mar 2022 – Jul 2022</span>
+              <span class="location-tag">📍 Mohali, India</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed a diagnostic health prediction system using Scikit-learn (Decision Trees / ANN), achieving a 20% increase in diagnostic accuracy</li>
+              <li>Validated model performance using K-Fold Cross-Validation and deployed the solution via a Django web interface</li>
             </ul>
           </div>
         </div>
@@ -1045,8 +1077,8 @@
         <!-- Orange County Real Estate -->
         <div class="project-card reveal">
           <h3 class="project-title">Orange County Real Estate Analysis</h3>
-          <span class="project-highlight">~95% Prediction Accuracy · 37 Cities · 7 Regression Models</span>
-          <p class="project-desc">Analyzed the impact of environmental and social factors (walkability, school ratings, air quality) on real estate prices across Orange County. Found a 36% seasonal price swing Q1→Q4 and identified air quality as the only environmental factor with significant negative price impact (p&lt;0.01).</p>
+          <span class="project-highlight">98% R-Squared · 100K+ Records · Redfin + Scraped Data</span>
+          <p class="project-desc">High-fidelity geospatial predictive model synthesizing Redfin listings with scraped environmental risk factors and mortgage rates across Orange County & San Diego. Proved walkability and school ratings significantly outweighed luxury amenities in driving demand — with rigorous outlier detection to prevent overfitting.</p>
           <div class="project-tools">
             <span class="badge badge-blue tool-badge">Python</span>
             <span class="badge badge-blue tool-badge">Pandas</span>
@@ -1066,16 +1098,16 @@
         <!-- Boston Crime -->
         <div class="project-card reveal">
           <h3 class="project-title">Boston Crime &amp; Property Analysis</h3>
-          <span class="project-highlight">R² = 99.75% · 61K+ Records · 11 Neighborhoods</span>
-          <p class="project-desc">Investigated the relationship between property tax levels and crime rates across 11 Boston neighborhoods using merged public datasets. OLS regression revealed a -0.37 Pearson correlation between property taxes and crime (p=0.001), offering data-backed insights for urban policy.</p>
+          <span class="project-highlight">-0.37 Correlation · 100K+ Records · 11 Neighborhoods</span>
+          <p class="project-desc">Cleaned and merged 100,000+ records across multiple Boston data sources to identify a -0.37 correlation between crime and property prices. Built interactive geospatial dashboards in Tableau to visually map risk-to-value ratios, helping real estate investors identify high-potential investment zones.</p>
           <div class="project-tools">
             <span class="badge badge-blue tool-badge">Python</span>
+            <span class="badge badge-blue tool-badge">R</span>
             <span class="badge badge-blue tool-badge">Pandas</span>
             <span class="badge badge-blue tool-badge">Statsmodels</span>
-            <span class="badge badge-blue tool-badge">Seaborn</span>
-            <span class="badge badge-blue tool-badge">SciPy</span>
-            <span class="badge badge-blue tool-badge">R</span>
+            <span class="badge badge-teal tool-badge">Tableau</span>
             <span class="badge badge-grey tool-badge">Alteryx</span>
+            <span class="badge badge-grey tool-badge">Excel</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/Lalitsh03/Boston_Crime_with_Property_Analysis" class="btn-link" target="_blank" rel="noopener">
@@ -1087,19 +1119,21 @@
 
         <!-- GPU Upscaling -->
         <div class="project-card reveal">
-          <div class="project-ribbon">In Progress</div>
-          <h3 class="project-title">GPU Upscaling &amp; AI Pricing Analysis</h3>
-          <span class="project-highlight">DLSS · FSR · XeSS · Price-to-Performance</span>
-          <p class="project-desc">Investigating price-to-performance ratios across GPU generations and analyzing whether DLSS, FSR, and XeSS represent genuine technological advancement or primarily marketing differentiation. Uses web-scraped benchmark data and statistical analysis.</p>
+          <h3 class="project-title">The Upscaling Illusion</h3>
+          <span class="project-highlight">3 Vendors · RTX 2000→5000 · AMD RX 5000→9000 · Intel Arc</span>
+          <p class="project-desc">Did DLSS, FSR, and XeSS genuinely improve GPU value per dollar — or did manufacturers use AI upscaling as cover to slow raw hardware progress while raising prices? Raw rasterization PPD roughly doubled over 7 years, but Nvidia's flagship price rose 42% in inflation-adjusted dollars. Strip out frame generation and the headline numbers tell a very different story.</p>
           <div class="project-tools">
             <span class="badge badge-blue tool-badge">Python</span>
             <span class="badge badge-blue tool-badge">Pandas</span>
+            <span class="badge badge-blue tool-badge">NumPy</span>
+            <span class="badge badge-teal tool-badge">Matplotlib</span>
+            <span class="badge badge-teal tool-badge">Seaborn</span>
+            <span class="badge badge-teal tool-badge">Power BI</span>
+            <span class="badge badge-grey tool-badge">SQLite</span>
             <span class="badge badge-grey tool-badge">Web Scraping</span>
-            <span class="badge badge-teal tool-badge">Data Visualization</span>
-            <span class="badge badge-blue tool-badge">Statistical Analysis</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Lalitsh03/gpu-upscaling-project" class="btn-link" target="_blank" rel="noopener">
+            <a href="https://github.com/Lalitsh03/upscaling-illusion" class="btn-link" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
               View on GitHub
             </a>
