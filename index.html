@@ -784,7 +784,6 @@
       color: var(--muted);
       text-decoration: none;
       font-size: 0.95rem;
-      transition: color var(--transition);
       padding: 0.65rem var(--space-xl);
       border: 1px solid var(--border);
       border-radius: var(--radius-full);
@@ -800,6 +799,44 @@
       transform: translateY(-2px);
     }
     .contact-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .contact-email-row {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-right: var(--space-md);
+    }
+    .contact-email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-md);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color var(--transition);
+      flex: 1;
+    }
+    .contact-email-link:hover { color: var(--accent); }
+    .contact-email-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all var(--transition);
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .copy-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(56,189,248,0.08);
+    }
+    .copy-btn svg { width: 14px; height: 14px; }
 
     /* ══════════════════════════════════
        FOOTER
@@ -1209,10 +1246,15 @@
         <h2 class="section-title reveal" style="justify-content:center;">Let's Connect</h2>
         <p class="contact-sub reveal">Open to full-time data analyst roles and interesting projects. Feel free to reach out — I'm always happy to chat.</p>
         <div class="contact-links reveal">
-          <a href="mailto:sh.lalit007@gmail.com" class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-            sh.lalit007@gmail.com
-          </a>
+          <div class="contact-item contact-email-row">
+            <a href="mailto:sh.lalit007@gmail.com" class="contact-email-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+              sh.lalit007@gmail.com
+            </a>
+            <button class="copy-btn" id="copyEmailBtn" title="Copy email address" onclick="(function(btn){navigator.clipboard.writeText('sh.lalit007@gmail.com').then(function(){var orig=btn.innerHTML;btn.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><polyline points=\'20 6 9 17 4 12\'></polyline></svg>';btn.style.color=\'#4ade80\';btn.style.borderColor=\'#4ade80\';setTimeout(function(){btn.innerHTML=orig;btn.style.color=\'\';btn.style.borderColor=\'\';},2000);})})(this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            </button>
+          </div>
           <a href="https://www.linkedin.com/in/lalitsharmacsuf/" class="contact-item" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             /in/lalitsharmacsuf
