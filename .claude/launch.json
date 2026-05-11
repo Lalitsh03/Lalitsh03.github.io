@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "powershell.exe",
+      "runtimeArgs": ["-NoProfile", "-Command", "$p=$env:PORT; if(!$p){$p=3000}; $h=[System.Net.HttpListener]::new(); $h.Prefixes.Add(\"http://localhost:$p/\"); $h.Start(); Write-Host \"Listening on http://localhost:$p\"; while($h.IsListening){$c=$h.GetContext(); $f=Join-Path (Get-Location) ($c.Request.Url.LocalPath.TrimStart('/')); if($c.Request.Url.LocalPath -eq '/'){$f=Join-Path (Get-Location) 'index.html'}; if(Test-Path $f -PathType Leaf){$b=[System.IO.File]::ReadAllBytes($f); $c.Response.ContentLength64=$b.Length; $c.Response.OutputStream.Write($b,0,$b.Length)}else{$c.Response.StatusCode=404}; $c.Response.Close()}"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
